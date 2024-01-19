@@ -1,8 +1,8 @@
 package api
 
 import (
-    "net/http"
-    "encoding/json"
+	"encoding/json"
+	"net/http"
 )
 
 type StatusParams struct {
@@ -10,18 +10,28 @@ type StatusParams struct {
 }
 
 type StatusResponse struct {
-	Code int
+	Code   int
 	Status bool
 }
 
+type UserDetailsResponse struct {
+	Username string
+	Status   bool
+}
+
+type AllStatusResponse struct {
+	Code       int
+	AllDetails []UserDetailsResponse
+}
+
 type Error struct {
-	Code int
+	Code    int
 	Message string
 }
 
-func writeError(w http.ResponseWriter, message string, code int){
+func writeError(w http.ResponseWriter, message string, code int) {
 	resp := Error{
-		Code: code,
+		Code:    code,
 		Message: message,
 	}
 	w.Header().Set("Content-Type", "application/json")
@@ -31,10 +41,10 @@ func writeError(w http.ResponseWriter, message string, code int){
 }
 
 var (
-	RequestErrorHandler = func(w http.ResponseWriter, err error){
+	RequestErrorHandler = func(w http.ResponseWriter, err error) {
 		writeError(w, err.Error(), http.StatusBadRequest)
 	}
-	InternalErrorHandler = func(w http.ResponseWriter){
+	InternalErrorHandler = func(w http.ResponseWriter) {
 		writeError(w, "An Unexpected error occured", http.StatusInternalServerError)
 	}
 )

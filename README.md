@@ -1,18 +1,28 @@
 # online_offline_tracker
 
-The purpose of this application is: An API in golang returning status of an existing user. 
-- Utilizes redis database.
-- Utilizes chi go package(small, idiomatic and composable router for building HTTP services).
-- With Authorization check(add 'Authorization' token in request header).
-- Hit GET request at endpoint  http://localhost:8000/account/status?username={username}
+The purpose of this application is returning the online status of user(s).
 
-- Response: 
-    - if successful: return online/offline status;
-    - otherwise: throws an error message
+## Tech Stack
+- Utilizes [redis database](https://redis.io/docs/about/)
+- Utilizes [chi go package](https://pkg.go.dev/github.com/go-chi/chi)
 
-[To-do] 
-1. Adding an user via API call
-2. Showing list of all users
+## Features
+1. Shows all online users
+2. Users can be added
 3. User can change their status to online
-4. User's status will be offline after 1 min
-5. If the user is offline, also show "was online X mins ago"
+4. User's status will be offline(data removed from redis) after 30sec
+
+## Endpoints
+- GET request at endpoint  http://localhost:8000/account/status?username={username}
+    - Response: 
+        - if user is present: return their online status
+        - if user is not present: add user and set status to online
+
+- GET request at endpoint http://localhost:8000/account/all
+    - Response:
+        - Returns list of all users and their status
+
+## Future Implementation
+- If the user is offline, show "was online X mins ago"
+- Dashboards to show redis metrics
+- Connection Pooling
