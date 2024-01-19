@@ -18,9 +18,11 @@ type UserDetails struct {
 func NewDatabase() (*redis.Client, error) {
 
 	client := redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
-		Password: "", // no password set
-		DB:       0,  // use default DB
+		Addr:        "localhost:6379",
+		Password:    "", // no password set
+		DB:          0,  // use default DB
+		PoolSize:    20,
+		PoolTimeout: 5 * time.Second,
 	})
 
 	// Adding Initial Users

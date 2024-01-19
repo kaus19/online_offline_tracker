@@ -11,6 +11,7 @@ The purpose of this application is returning the online status of user(s).
 2. Users can be added
 3. User can change their status to online
 4. User's status will be offline(data removed from redis) after 30sec
+5. Connection pooling and timeout
 
 ## Endpoints
 - GET request at endpoint  http://localhost:8000/account/status?username={username}
@@ -25,4 +26,3 @@ The purpose of this application is returning the online status of user(s).
 ## Future Implementation
 - If the user is offline, show "was online X mins ago"
 - Dashboards to show redis metrics
-- Connection Pooling
