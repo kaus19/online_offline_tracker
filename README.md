@@ -1,6 +1,6 @@
 # online_offline_tracker
 
-The purpose of this application is returning the online status of user(s).
+The purpose of this application is to return the online status of user(s).
 
 ## Tech Stack
 - Utilizes [redis database](https://redis.io/docs/about/)
