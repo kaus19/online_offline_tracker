@@ -7,11 +7,11 @@ The purpose of this application is returning the online status of user(s).
 - Utilizes [chi go package](https://pkg.go.dev/github.com/go-chi/chi)
 
 ## Features
-1. Shows all online users
-2. Users can be added
-3. User can change their status to online
-4. User's status will be offline(data removed from redis) after 30sec
-5. Connection pooling and timeout
+- Shows all online users
+- Users can be added
+- User can change their status to online
+- User's status will be offline(data removed from redis) after 30sec
+- Connection pooling and timeout
 
 ## Endpoints
 - GET Request at http://localhost:8000/account/status?username={username}
