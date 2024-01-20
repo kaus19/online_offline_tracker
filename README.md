@@ -25,4 +25,4 @@ The purpose of this application is returning the online status of user(s).
 
 ## Future Implementation
 - If the user is offline, show "was online X mins ago"
-- Dashboards to show redis metrics
+- Dashboard to show redis metrics
