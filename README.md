@@ -14,12 +14,12 @@ The purpose of this application is returning the online status of user(s).
 5. Connection pooling and timeout
 
 ## Endpoints
-- GET request at endpoint  http://localhost:8000/account/status?username={username}
+- GET Request at http://localhost:8000/account/status?username={username}
     - Response: 
         - if user is present: return their online status
         - if user is not present: add user and set status to online
 
-- GET request at endpoint http://localhost:8000/account/all
+- GET Request at http://localhost:8000/account/all
     - Response:
         - Returns list of all users and their status
 
